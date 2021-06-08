@@ -19,14 +19,14 @@ var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute n
 $(document).on('keydown', handleKeyDown); //todo1                          // change 'eventType' to the type of event you want to handle
 $(document).on('keyup', handleKeyUp); //todo6                          // change 'eventType' to the type of event you want to handle
 
-var gameItem = {  //todo3//
-    positionX = 0, // the x-coordinate location for the box
-    speedX = 0, // the speed for the box along the x-axis
-    positionY = 0, // the x-coordinate location for the box
-    speedY = 0, // the speed for the box along the x-axis
+var gameItem = {  //todo3// yes
+    positionX : 0, // the x-coordinate location for the box
+    speedX : 0, // the speed for the box along the x-axis
+    positionY : 0, // the x-coordinate location for the box
+    speedY : 0, // the speed for the box along the x-axis
 }
 
-////////////////////////////////////////////////////////////////////////////////
+///////////////  /////////////////////////////////////////////////////////////////
 ///////////////////////// CORE LOGIC ///////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -46,19 +46,19 @@ function handleKeyDown(event) { //todo1//
     console.log(event); //todo1//
 
     if (event.which === KEY.UP) { //todo2  supposed to call variable "up"//
-      speedX = -5; //todo5//
+      gameItem.speedX = -5; //todo5//
       //console.log("up pressed");  //todo2  supposed to print "up pressed"//
     }
     else if (event.which === KEY.LEFT) {  //todo2  supposed to call variable "left"//
-      speedX = -5; //todo5//
+      gameItem.speedX = -5; //todo5//
       //console.log("left pressed");  //todo2  supposed to print "left pressed"//
     }
     else if (event.which === KEY.RIGHT) {  //todo2  supposed to call variable "right"//
-      speedX = -5;  //todo5//
+      gameItem.speedX = -5;  //todo5//
       //console.log("right pressed");  //todo2  supposed to print "right pressed"//
     }
     else if (event.which === KEY.DOWN) {  //todo2  supposed to call variable "down"//
-      speedX = -5;  //todo5//
+      gameItem.speedX = -5;  //todo5//
       //console.log("down pressed");  //todo2  supposed to print "down pressed"//
     }
   }
@@ -69,19 +69,19 @@ Called in response to events.
     console.log(event); //todo6//
 
     if (event.which === KEY.UP) { //todo6  supposed to call variable "up"//
-      speedX = 0; //todo6 meant to stop box when key is released//
+      gameItem.speedX = 0; //todo6 meant to stop box when key is released//
       //console.log("up released");  //todo6  supposed to print "up released"//
     }
     else if (event.which === KEY.LEFT) {  //todo6  supposed to call variable "left"//
-      speedX = 0; //todo6 meant to stop box when key is released//
+      gameItem.speedX = 0; //todo6 meant to stop box when key is released//
       //console.log("left released");  //todo6  supposed to print "left released"//
     }
     else if (event.which === KEY.RIGHT) {  //todo6  supposed to call variable "right"//
-      speedX = 0;  //todo6 meant to stop box when key is released//
+      gameItem.speedX = 0;  //todo6 meant to stop box when key is released//
       //console.log("right released");  //todo6  supposed to print "right released"//
     }
     else if (event.which === KEY.DOWN) {  //todo6  supposed to call variable "down"//
-      speedX = 0;  //todo6 meant to stop box when key is released//
+      gameItem.speedX = 0;  //todo6 meant to stop box when key is released//
       //console.log("down released");  //todo6  supposed to print "down released"//
     }
   }
@@ -98,13 +98,13 @@ var KEY = { //todo2 meant to be variable for up key//
 ////////////////////////////////////////////////////////////////////////////////
 
 function repositiongameItem(){ //todo4//
-  positionX += speedX; // update the position of the box along the x-axis
-  positionY += speedY; // update the position of the box along the y-axis
+  gameItem.positionX += gameItem.speedX; // update the position of the box along the x-axis
+  gameItem.positionY += gameItem.speedY; // update the position of the box along the y-axis
 };
 
 function redrawgameItem(){ //todo4//
-  $("#gameItem").css("left", positionX);    // draw the box in the new location, positionX pixels away from the "left"
-  $("#gameItem").css("top", positionY);    // draw the box in the new location, positionX pixels away from the "top"
+  $("#gameItem").css("left", gameItem.positionX);    // draw the box in the new location, positionX pixels away from the "left"
+  $("#gameItem").css("top", gameItem.positionY);    // draw the box in the new location, positionX pixels away from the "top"
 };
 
 function endGame() {

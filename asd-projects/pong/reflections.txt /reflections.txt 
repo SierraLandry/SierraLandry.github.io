@@ -1,0 +1,31 @@
+User story/ gameplay
+    There will be two playable players and each player will move their block/ paddle up and down to bounce the ball into each others goal.
+        Will need border radius css to make rounded edges.
+    Maybe the ball will bounce towards to left to start? Or it can just go randomly (like debugging execise) until one of the players can hit it. Or the game can start when left clicked
+    The game will end once one player gets to 11 points
+        Maybe there can be an end screen and a restart button if not too hard??
+    There will need to be things like
+        - "if player 1 gets to 11 points, end game" and "if player 2 gets to 11 points, end game".
+        - "if ball hits player one's paddle, bounce either left or right" and "if ball hits player two's paddle, bounce either left or right"
+        - "if ball hits boardHeight, bounce -top/up" and "if ball hits (number of the bottom), bounce top/up"
+        - "if ball goes past (number of the side of player 1), player 2 gets 1 point" and "if ball goes past (number of the side of player 2), player 1 gets 1 point"
+Visual Game Components
+    The ball, the paddles, the board, the invisible line
+    The ball will be animated
+        will need position x, position y, speed x, speed y (positive for up)
+    The paddles will be animated
+        will need position x, position y, speed x, speed y (positive for up)
+    The board will be static
+        will need absolote position x, absolute position y
+    The invisible line will be static
+        will need absolute position x, absolute position y
+    The score box will be static
+        will need absolute position x, absolute position y
+Events/ Logic
+    When up arrow is pressed, paddle for player () will move up and when down arrow is pressed, paddle for player () will move down
+        gameItem update position
+    When w key is pressed, paddle for player () will move up and when s key is pressed, paddle for player () will move down
+        gameItem update position
+    When point is scored, ball will return to center and move randomly until hit
+    When point is scored, score will appear in top right or left by players starting area
+    When point is scored, paddles will return to staring positions maybe

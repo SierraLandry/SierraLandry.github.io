@@ -35,13 +35,13 @@ gameItemBall.Y = 230;    // same as "top"
   $(document).on('keyupT', handleKeyUpT);
   //define positionx, speedx, position y, and speed y around here//
 
-   var position = {};
-   position.X = 0;
-   position.Y = 0;
-  
-   var speed = {}; 
-   speed.X = 0;
-   speed.Y = 0;
+  var positionX = 0; // the x-coordinate location for the box
+
+  var speedX = 0;  // the speed for the box along the x-axis
+
+  var positionY = 0; // the x-coordinate location for the box
+
+  var speedY = 0; // the speed for the box along the x-axis
 
 //define key numbers and their purposes around here//
 
@@ -121,12 +121,12 @@ gameItemBall.Y = 230;    // same as "top"
   ////////////////////////////////////////////////////////////////////////////////
 
      function repositiongameItemPaddle1(){ 
-     position.X += speed.X; // update the position of the box along the x-axis
+     gameItemPaddle1.X += speed.X; // update the position of the box along the x-axis
      position.Y += speed.Y; // update the position of the box along the y-axis
    };
 
    function repositiongameItemPaddle2(){ 
-    position.X += speed.X; // update the position of the box along the x-axis
+    gameItemPaddle2.X += speed.X; // update the position of the box along the x-axis
     position.Y += speed.Y; // update the position of the box along the y-axis
   };
 
@@ -141,7 +141,7 @@ gameItemBall.Y = 230;    // same as "top"
   };
 
   function repositiongameItemBall(){ 
-    position.X += speed.X; // update the position of the box along the x-axis
+    gameItemBall.X += speed.X; // update the position of the box along the x-axis
     position.Y += speed.Y; // update the position of the box along the y-axis
   };
 

@@ -14,24 +14,24 @@ function runProgram(){
   // Game Item Objects
   var gameItemPaddle1 = {};
 gameItemPaddle1.$element = $("#gameItemPaddle1");
-gameItemPaddle1.x = "DOWN";   // same as "left"
-gameItemPaddle1.y = "UP";    // same as "top"
+gameItemPaddle1.X = 10;   // same as "left"
+gameItemPaddle1.Y = 180;    // same as "top"
 
 var gameItemPaddle2 = {};
 gameItemPaddle2.$element = $("#gameItemPaddle2");
-gameItemPaddle2.x = "DOWN";   // same as "left"
-gameItemPaddle2.y = "UP";    // same as "top"
+gameItemPaddle2.X = 420;   // same as "left"
+gameItemPaddle2.Y = 180;    // same as "top"
 
-var gameItemBall = {};
+var gameItemBall = {}; //somehow this affects paddle position//
 gameItemBall.$element = $("#gameItemBall");
-gameItemBall.x = "DOWN";   // same as "left"
-gameItemBall.y = "UP";    // same as "top"
+gameItemBall.X = 215;   // same as "left"
+gameItemBall.Y = 230;    // same as "top"
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
-  $(document).on('keydown', handleKeyDown);    //example: $(document).on('keydown', handleKeyDown);                       // change 'eventType' to the type of event you want to handle
+  $(document).on('keydown', handleKeyDown);       // change 'eventType' to the type of event you want to handle
   $(document).on('keyup', handleKeyUp);
-  $(document).on('keydownT', handleKeyDownT);    //example: $(document).on('keydown', handleKeyDown);                       // change 'eventType' to the type of event you want to handle
+  $(document).on('keydownT', handleKeyDownT);     // change 'eventType' to the type of event you want to handle
   $(document).on('keyupT', handleKeyUpT);
   //define positionx, speedx, position y, and speed y around here//
 
@@ -150,18 +150,18 @@ gameItemBall.y = "UP";    // same as "top"
      $("#gameItemPaddle1").css("top", position.Y);    // draw the box in the new location, positionX pixels away from the "top"
    };
 
-  function doCollide(gameItemball, gameItemPaddle1, gameItemPaddle2) {
-    // return false if the objects do not collide
-    // return true if the objects do collide
-    if (doCollide(gameItemball, gameItemPaddle1)) {
-      // bounce ball off paddle Left
-      //INSERT SOMETHING HERE
-    }
-    else if(doCollide(gameItemball, gameItemPaddle2)) {
-      // bounce ball off paddle Right
-      //INSERT SOMETHING HERE
-    }
-  }
+  // function doCollide(gameItemball, gameItemPaddle1, gameItemPaddle2) {
+  //   // return false if the objects do not collide
+  //   // return true if the objects do collide
+  //   if (doCollide(gameItemball, gameItemPaddle1)) {
+  //     // bounce ball off paddle Left
+  //     //INSERT SOMETHING HERE
+  //   }
+  //   else if(doCollide(gameItemball, gameItemPaddle2)) {
+  //     // bounce ball off paddle Right
+  //     //INSERT SOMETHING HERE
+  //   }
+  // }
   
   function endGame() {
     // stop the interval timer

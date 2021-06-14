@@ -12,25 +12,38 @@ function runProgram(){
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
   
   // Game Item Objects
+  var gameItemPaddle1 = {};
+gameItemPaddle1.$element = $("#gameItemPaddle1");
+gameItemPaddle1.x = "DOWN";   // same as "left"
+gameItemPaddle1.y = "UP";    // same as "top"
 
+var gameItemPaddle2 = {};
+gameItemPaddle2.$element = $("#gameItemPaddle2");
+gameItemPaddle2.x = "DOWN";   // same as "left"
+gameItemPaddle2.y = "UP";    // same as "top"
+
+var gameItemBall = {};
+gameItemBall.$element = $("#gameItemBall");
+gameItemBall.x = "DOWN";   // same as "left"
+gameItemBall.y = "UP";    // same as "top"
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keydown', handleKeyDown);    //example: $(document).on('keydown', handleKeyDown);                       // change 'eventType' to the type of event you want to handle
   $(document).on('keyup', handleKeyUp);
-  $(document).on('keydown2', handleKeyDown2);    //example: $(document).on('keydown', handleKeyDown);                       // change 'eventType' to the type of event you want to handle
-  $(document).on('keyup2', handleKeyUp2);
+  $(document).on('keydownT', handleKeyDownT);    //example: $(document).on('keydown', handleKeyDown);                       // change 'eventType' to the type of event you want to handle
+  $(document).on('keyupT', handleKeyUpT);
   //define positionx, speedx, position y, and speed y around here//
 
    var position = {};
-   position.x = 0,
-   position.y = 0,
+   position.X = 0;
+   position.Y = 0;
   
    var speed = {}; 
-   speed.x = 0,
-   speed.y = 0,
+   speed.X = 0;
+   speed.Y = 0;
 
-//define key numbers and their purposes around ehre//
+//define key numbers and their purposes around here//
 
    var KEY = { // meant to be variable for up key//
     "UP": 38,  // number for up arrow// 
@@ -63,7 +76,7 @@ function runProgram(){
   /* 
   Called in response to events.
   */
-  function handleEvent(event) {
+  function handleKeyDown(event) { //key press player 1
       if (event.which === KEY.UP) { //  supposed to call variable "up"//
          speedY = 5; 
        }
@@ -72,16 +85,37 @@ function runProgram(){
          speedY = -5;  
        }
   } //do not delete <--//
-  function handleEvent(event) {
-    if (event.which === KEY.UP2) { //  supposed to call variable "up"//
-         speedY = 0; // meant to stop box when key is released//
-    
+  function handleKeyDownT(event) { //key press player 2//
+    if (event.which === KEY.UPT) { //  supposed to call variable "up2"//
+         speedY = 5; // meant to stop box when key is released//
        }
-      
-    else if (event.which === KEY.DOWN2) {  //  supposed to call variable "down"//
-         speedY = 0;  // meant to stop box when key is released//
+
+    else if (event.which === KEY.DOWNT) {  //  supposed to call variable "down2"//
+         speedY = -5;  // meant to stop box when key is released//
        } 
       };//do not delete
+
+      function handleKeyUp(event) { //key release player 1
+        if (event.which === KEY.UP) { //  supposed to call variable "up"//
+           speedY = 0; 
+         }
+         
+        else if (event.which === KEY.DOWN) {  //  supposed to call variable "down"//
+           speedY = 0;  
+         }
+    } //do not delete <--//
+
+    function handleKeyUpT(event) { //key release player 2
+      if (event.which === KEY.UPT) { //  supposed to call variable "up"//
+         speedY = 0; 
+       }
+       
+      else if (event.which === KEY.DOWNT) {  //  supposed to call variable "down"//
+         speedY = 0;  
+       }
+  } //do not delete <--//
+
+
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -97,23 +131,35 @@ function runProgram(){
   };
 
    function redrawgameItemPaddle1(){ 
-     $("#gameItemPaddle1").css("left", positionX);    // draw the box in the new location, positionX pixels away from the "left"
-     $("#gameItemPaddle1").css("top", positionY);    // draw the box in the new location, positionX pixels away from the "top"
+     $("#gameItemPaddle1").css("left", position.X);    // draw the box in the new location, positionX pixels away from the "left"
+     $("#gameItemPaddle1").css("top", position.Y);    // draw the box in the new location, positionX pixels away from the "top"
    };
 
    function redrawgameItemPaddle2(){ 
-    $("#gameItemPaddle2").css("left", positionX);    // draw the box in the new location, positionX pixels away from the "left"
-    $("#gameItemPaddle2").css("top", positionY);    // draw the box in the new location, positionX pixels away from the "top"
+    $("#gameItemPaddle2").css("left", position.X);    // draw the box in the new location, positionX pixels away from the "left"
+    $("#gameItemPaddle2").css("top", position.Y);    // draw the box in the new location, positionX pixels away from the "top"
   };
+
+  function repositiongameItemBall(){ 
+    position.X += speed.X; // update the position of the box along the x-axis
+    position.Y += speed.Y; // update the position of the box along the y-axis
+  };
+
+   function redrawgameItemBall(){ 
+     $("#gameItemPaddle1").css("left", position.X);    // draw the box in the new location, positionX pixels away from the "left"
+     $("#gameItemPaddle1").css("top", position.Y);    // draw the box in the new location, positionX pixels away from the "top"
+   };
 
   function doCollide(gameItemball, gameItemPaddle1, gameItemPaddle2) {
     // return false if the objects do not collide
     // return true if the objects do collide
     if (doCollide(gameItemball, gameItemPaddle1)) {
       // bounce ball off paddle Left
+      //INSERT SOMETHING HERE
     }
     else if(doCollide(gameItemball, gameItemPaddle2)) {
       // bounce ball off paddle Right
+      //INSERT SOMETHING HERE
     }
   }
   

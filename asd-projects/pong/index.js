@@ -12,20 +12,20 @@ function runProgram(){
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
   
   // Game Item Objects
-  var gameItemPaddle1 = {};
-gameItemPaddle1.$element = $("#gameItemPaddle1");
-gameItemPaddle1.X = 10;   // same as "left"
-gameItemPaddle1.Y = 180;    // same as "top"
+//   var gameItemPaddle1 = {};
+// gameItemPaddle1.$element = $("#gameItemPaddle1");
+// gameItemPaddle1.X = 10;   // same as "left"
+// gameItemPaddle1.Y = 180;    // same as "top"
 
-var gameItemPaddle2 = {};
-gameItemPaddle2.$element = $("#gameItemPaddle2");
-gameItemPaddle2.X = 420;   // same as "left"
-gameItemPaddle2.Y = 180;    // same as "top"
+// var gameItemPaddle2 = {};
+// gameItemPaddle2.$element = $("#gameItemPaddle2");
+// gameItemPaddle2.X = 420;   // same as "left"
+// gameItemPaddle2.Y = 180;    // same as "top"
 
-var gameItemBall = {}; //somehow this affects paddle position//
-gameItemBall.$element = $("#gameItemBall");
-gameItemBall.X = 215;   // same as "left"
-gameItemBall.Y = 230;    // same as "top"
+// var gameItemBall = {}; //somehow this affects paddle position//
+// gameItemBall.$element = $("#gameItemBall");
+// gameItemBall.X = 215;   // same as "left"
+// gameItemBall.Y = 230;    // same as "top"
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)

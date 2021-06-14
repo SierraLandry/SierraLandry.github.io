@@ -47,8 +47,8 @@ gameItemPaddle1.speedX = 0
    var KEY = { // meant to be variable for up key//
     "UP": 38,  // number for up arrow// 
      "DOWN": 40,  // number for down arrow//
-     "UP2" : 87, //number for W
-     "DOWN2" : 83, //number for S
+     "UPT" : 87, //number for W
+     "DOWNT" : 83, //number for S
   }
   
   

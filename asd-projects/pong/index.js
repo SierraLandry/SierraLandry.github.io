@@ -12,20 +12,20 @@ function runProgram(){
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
   
   // Game Item Objects
-//   var gameItemPaddle1 = {};
-// gameItemPaddle1.$element = $("#gameItemPaddle1");
-// gameItemPaddle1.X = 10;   // same as "left"
-// gameItemPaddle1.Y = 180;    // same as "top"
+  var gameItemPaddle1 = {};
+gameItemPaddle1.$element = $("#gameItemPaddle1");
+gameItemPaddle1.X = 10;   // same as "left"
+gameItemPaddle1.Y = 180;    // same as "top"
 
-// var gameItemPaddle2 = {};
-// gameItemPaddle2.$element = $("#gameItemPaddle2");
-// gameItemPaddle2.X = 420;   // same as "left"
-// gameItemPaddle2.Y = 180;    // same as "top"
+var gameItemPaddle2 = {};
+gameItemPaddle2.$element = $("#gameItemPaddle2");
+gameItemPaddle2.X = 420;   // same as "left"
+gameItemPaddle2.Y = 180;    // same as "top"
 
-// var gameItemBall = {}; //somehow this affects paddle position//
-// gameItemBall.$element = $("#gameItemBall");
-// gameItemBall.X = 215;   // same as "left"
-// gameItemBall.Y = 230;    // same as "top"
+var gameItemBall = {}; //somehow this affects paddle position//
+gameItemBall.$element = $("#gameItemBall");
+gameItemBall.X = 215;   // same as "left"
+gameItemBall.Y = 230;    // same as "top"
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
@@ -35,14 +35,7 @@ function runProgram(){
   $(document).on('keyupT', handleKeyUpT);
   //define positionx, speedx, position y, and speed y around here//
 
-  var positionX = 0; // the x-coordinate location for the box
-
-  var speedX = 0;  // the speed for the box along the x-axis
-
-  var positionY = 0; // the x-coordinate location for the box
-
-  var speedY = 0; // the speed for the box along the x-axis
-
+ 
 //define key numbers and their purposes around here//
 
    var KEY = { // meant to be variable for up key//

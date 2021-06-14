@@ -86,11 +86,11 @@ gameItemBall.Y = 230;    // same as "top"
        }
   } //do not delete <--//
   function handleKeyDownT(event) { //key press player 2//
-    if (event.which === KEY.UPT) { //  supposed to call variable "up2"//
+    if (event.which === KEY.UPT) { //  supposed to call variable "upT"//
          speedY = 5; // meant to stop box when key is released//
        }
 
-    else if (event.which === KEY.DOWNT) {  //  supposed to call variable "down2"//
+    else if (event.which === KEY.DOWNT) {  //  supposed to call variable "downT"//
          speedY = -5;  // meant to stop box when key is released//
        } 
       };//do not delete
@@ -99,18 +99,18 @@ gameItemBall.Y = 230;    // same as "top"
         if (event.which === KEY.UP) { //  supposed to call variable "up"//
            speedY = 0; 
          }
-         
+
         else if (event.which === KEY.DOWN) {  //  supposed to call variable "down"//
            speedY = 0;  
          }
     } //do not delete <--//
 
     function handleKeyUpT(event) { //key release player 2
-      if (event.which === KEY.UPT) { //  supposed to call variable "up"//
+      if (event.which === KEY.UPT) { //  supposed to call variable "upT"//
          speedY = 0; 
        }
        
-      else if (event.which === KEY.DOWNT) {  //  supposed to call variable "down"//
+      else if (event.which === KEY.DOWNT) {  //  supposed to call variable "downT"//
          speedY = 0;  
        }
   } //do not delete <--//
@@ -121,12 +121,12 @@ gameItemBall.Y = 230;    // same as "top"
   ////////////////////////////////////////////////////////////////////////////////
 
      function repositiongameItemPaddle1(){ 
-     gameItemPaddle1.X += speed.X; // update the position of the box along the x-axis
+     position.X += speed.X; // update the position of the box along the x-axis
      position.Y += speed.Y; // update the position of the box along the y-axis
    };
 
    function repositiongameItemPaddle2(){ 
-    gameItemPaddle2.X += speed.X; // update the position of the box along the x-axis
+    position.X += speed.X; // update the position of the box along the x-axis
     position.Y += speed.Y; // update the position of the box along the y-axis
   };
 
@@ -141,7 +141,7 @@ gameItemBall.Y = 230;    // same as "top"
   };
 
   function repositiongameItemBall(){ 
-    gameItemBall.X += speed.X; // update the position of the box along the x-axis
+    position.X += speed.X; // update the position of the box along the x-axis
     position.Y += speed.Y; // update the position of the box along the y-axis
   };
 

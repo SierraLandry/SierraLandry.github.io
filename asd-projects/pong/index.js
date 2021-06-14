@@ -19,14 +19,14 @@ gameItemPaddle1.Y = 180;    // same as "top" //give speed x value
 gameItemPaddle1.speedY = 0
 gameItemPaddle1.speedX = 0
 
-var gameItemPaddle2 = {};
+  var gameItemPaddle2 = {};
 gameItemPaddle2.$element = $("#gameItemPaddle2");
 gameItemPaddle2.X = 420;   // same as "left"
 gameItemPaddle2.Y = 180;    // same as "top"
 gameItemPaddle2.speedY = 0
-gameItemPaddle1.speedX = 0
+gameItemPaddle2.speedX = 0
 
-var gameItemBall = {}; //somehow this affects paddle position//
+  var gameItemBall = {}; //somehow this affects paddle position//
 gameItemBall.$element = $("#gameItemBall");
 gameItemBall.X = 215;   // same as "left"
 gameItemBall.Y = 230;    // same as "top"
@@ -65,10 +65,10 @@ gameItemPaddle1.speedX = 0
   function newFrame() { //given//
     
     repositiongameItemPaddle1();
-    redrawgameItemPaddle1();
-    redrawgameItemPaddle2();
     repositiongameItemPaddle2();
     repositiongameItemBall();
+    redrawgameItemPaddle1();
+    redrawgameItemPaddle2();
     redrawgameItemBall();
   };
   
@@ -77,26 +77,26 @@ gameItemPaddle1.speedX = 0
   */
   function handleKeyDown(event) { //key press player 1
       if (event.which === KEY.UP) { //  supposed to call variable "up"//
-        gameItemPaddle1.speedX = 5; 
+        gameItemPaddle1.speedY = -5; 
        }
        
       else if (event.which === KEY.DOWN) {  //  supposed to call variable "down"//
-        gameItemPaddle1.speedY = -5;  
+        gameItemPaddle1.speedY = 5;  
        }
   } //do not delete <--//
   function handleKeyDownT(event) { //key press player 2//
-    if (event.which === KEY.UPT) { //  supposed to call variable "upT"//
-      gameItemPaddle2.speedX = 5; // meant to stop box when key is released//
+      if (event.which === KEY.UPT) { //  supposed to call variable "upT"//
+        gameItemPaddle2.speedY = -5; 
        }
 
-    else if (event.which === KEY.DOWNT) {  //  supposed to call variable "downT"//
-      gameItemPaddle2.speedY = -5;  // meant to stop box when key is released//
+       else if (event.which === KEY.DOWNT) {  //  supposed to call variable "downT"//
+        gameItemPaddle2.speedY = 5;  
        } 
-      };//do not delete
+  };//do not delete
 
       function handleKeyUp(event) { //key release player 1
         if (event.which === KEY.UP) { //  supposed to call variable "up"//
-          gameItemPaddle1.speedX = 0; 
+          gameItemPaddle1.speedY = 0; 
          }
 
         else if (event.which === KEY.DOWN) {  //  supposed to call variable "down"//
@@ -106,7 +106,7 @@ gameItemPaddle1.speedX = 0
 
     function handleKeyUpT(event) { //key release player 2
       if (event.which === KEY.UPT) { //  supposed to call variable "upT"//
-        gameItemPaddle2.speedX = 0; 
+        gameItemPaddle2.speedY = 0; 
        }
        
       else if (event.which === KEY.DOWNT) {  //  supposed to call variable "downT"//
@@ -120,38 +120,38 @@ gameItemPaddle1.speedX = 0
   ////////////////////////////////////////////////////////////////////////////////
 
      function repositiongameItemPaddle1(){ 
-     gameItemPaddle1.speedX ; // update the position of the box along the x-axis
-     gameItemPaddle1.speedY; // update the position of the box along the y-axis
+      gameItemPaddle1.X += gameItemPaddle1.speedX; // update the position of the box along the x-axis
+      gameItemPaddle1.Y += gameItemPaddle1.speedY; // update the position of the box along the y-axis
    };
 
-   function repositiongameItemPaddle2(){ 
-    gameItemPaddle2.speedX ; // update the position of the box along the x-axis
-     gameItemPaddle2.speedY; // update the position of the box along the y-axis
-  };
+    function repositiongameItemPaddle2(){ 
+      gameItemPaddle2.X += gameItemPaddle2.speedX; // update the position of the box along the x-axis
+      gameItemPaddle2.Y += gameItemPaddle2.speedY; // update the position of the box along the y-axis
+    };
+
+    function repositiongameItemBall(){ 
+      gameItemBall.X += gameItemBall.speedX ; // update the position of the box along the x-axis
+      gameItemBall.X += gameItemBall.speedY; // update the position of the box along the y-axis
+    };
 
    function redrawgameItemPaddle1(){ 
-    gameItemPaddle1.speedX ; // update the position of the box along the x-axis
-    gameItemPaddle1.speedY; // update the position of the box along the y-axis
+    $("#gameItemPaddle1").css("left", gameItemPaddle1.X);    // draw the box in the new location, positionX pixels away from the "left"
+    $("#gameItemPaddle1").css("top", gameItemPaddle1.Y);    // draw the box in the new location, positionX pixels away from the "top"
    };
 
    function redrawgameItemPaddle2(){ 
-    $("#gameItemPaddle2").css("left", gameItemPaddle2.speedX);    // draw the box in the new location, positionX pixels away from the "left"
-    $("#gameItemPaddle2").css("top", gameItemPaddle2.speedY);    // draw the box in the new location, positionX pixels away from the "top"
-  };
-
-  function repositiongameItemBall(){ 
-    gameItemBall.speedX ; // update the position of the box along the x-axis
-     gameItemBall.speedY; // update the position of the box along the y-axis
+    $("#gameItemPaddle2").css("left", gameItemPaddle2.X);    // draw the box in the new location, positionX pixels away from the "left"
+    $("#gameItemPaddle2").css("top", gameItemPaddle2.Y);    // draw the box in the new location, positionX pixels away from the "top"
   };
 
    function redrawgameItemBall(){ 
-     $("#gameItemBall").css("left", gameItemBall.speedX);    // draw the box in the new location, positionX pixels away from the "left"
-     $("#gameItemBall").css("top", gameItemBall.speedY);    // draw the box in the new location, positionX pixels away from the "top"
+     $("#gameItemBall").css("left", gameItemBall.X);    // draw the box in the new location, positionX pixels away from the "left"
+     $("#gameItemBall").css("top", gameItemBall.Y);    // draw the box in the new location, positionX pixels away from the "top"
    };
 
   // function doCollide(gameItemball, gameItemPaddle1, gameItemPaddle2) {
-  //   // return false if the objects do not collide
-  //   // return true if the objects do collide
+  //  return(false) === false // return false if the objects do not collide
+  //  return(true) === true // return true if the objects do collide
   //   if (doCollide(gameItemball, gameItemPaddle1)) {
   //     // bounce ball off paddle Left
   //     //INSERT SOMETHING HERE

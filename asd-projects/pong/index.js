@@ -70,7 +70,8 @@ gameItemBall.speedX = 3
     redrawgameItemPaddle1();
     redrawgameItemPaddle2();
     redrawgameItemBall();
-    handlePaddleCollisions();
+    handlePaddleCollisions(gameItemPaddle1, gameItemBall);
+    handlePaddleCollisions(gameItemPaddle2, gameItemBall);
   };
   
   /* 
@@ -178,6 +179,7 @@ gameItemBall.speedX = 3
     else {
       return false;
     }
+  }
     function handlePaddleCollisions(paddle, ball){
       if (doCollide(ball, paddle)) {
         ball.speedX = -3;
@@ -188,7 +190,7 @@ gameItemBall.speedX = 3
 
   }
 
-  }
+
 // /\ do collide
 
     

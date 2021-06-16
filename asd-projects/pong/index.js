@@ -149,27 +149,27 @@ gameItemPaddle1.speedX = 0
      $("#gameItemBall").css("top", gameItemBall.Y);    // draw the box in the new location, positionX pixels away from the "top"
    };
  //\/ do collide
-   function doCollide(square1, square2) {
+   function doCollide(gameItemPaddle1, gameItemBall) {
     // TODO: calculate and store the remaining
     // sides of the square1
-    square1.leftX = square1.x; //given
-    square1.topY = square1.y; //given
-    square1.bottomY = square1.y + square1.height
-    square1.rightX = square1.x + square1.width
+    gameItemPaddle1.leftX = gameItemPaddle1.x; //given
+    gameItemPaddle1.topY = gameItemPaddle1.y; //given
+    gameItemPaddle1.bottomY = gameItemPaddle1.y + gameItemPaddle1.height
+    gameItemPaddle1.rightX = gameItemPaddle1.x + gameItemPaddle1.width
 
     
     // TODO: Do the same for square2
-    square2.leftX = square2.x;
-    square2.topY = square2.y;
-    square2.bottomY = square2.y + square2.height
-    square2.rightX = square2.x + square2.width
+    gameItemBall.leftX = gameItemBall.x;
+    gameItemBall.topY = gameItemBall.y;
+    gameItemBall.bottomY = gameItemBall.y + gameItemBall2.height
+    gameItemBall.rightX = gameItemBall.x + gameItemBall.width
 
     // TODO: Return true if they are overlapping, false otherwise
 	
-    if (square1.rightX > square2.leftX &&
-       square1.leftX < square2.rightX &&
-       square1.bottomY > square2.topY &&
-       square1.topY < square2.bottomY) {
+    if (gameItemPaddle1.rightX > gameItemBall.leftX &&
+      gameItemPaddle1.leftX < gameItemBall.rightX &&
+      gameItemPaddle1.bottomY > gameItemBall.topY &&
+      gameItemPaddle1.topY < gameItemBall.bottomY) {
       return true;
     }
   

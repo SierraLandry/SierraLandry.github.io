@@ -18,6 +18,8 @@ gameItemPaddle1.X = 10;   // same as "left"
 gameItemPaddle1.Y = 180;    // same as "top" //give speed x value
 gameItemPaddle1.speedY = 0
 gameItemPaddle1.speedX = 0
+gameItemPaddle1.width = 20
+gameItemPaddle1.height = 80
 
   var gameItemPaddle2 = {};
 gameItemPaddle2.$element = $("#gameItemPaddle2");
@@ -25,13 +27,17 @@ gameItemPaddle2.X = 420;   // same as "left"
 gameItemPaddle2.Y = 180;    // same as "top"
 gameItemPaddle2.speedY = 0
 gameItemPaddle2.speedX = 0
+gameItemPaddle2.width = 20
+gameItemPaddle2.height = 80
 
   var gameItemBall = {}; //somehow this affects paddle position//
 gameItemBall.$element = $("#gameItemBall");
 gameItemBall.X = 215;   // same as "left"
 gameItemBall.Y = 230;    // same as "top"
-gameItemBall.speedY = 3
+gameItemBall.speedY = 0
 gameItemBall.speedX = 3
+gameItemBall.width = 20
+gameItemBall.height = 20
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
@@ -133,7 +139,7 @@ gameItemBall.speedX = 3
 
     function repositiongameItemBall(){ 
       gameItemBall.X += gameItemBall.speedX ; // update the position of the box along the x-axis
-      gameItemBall.X += gameItemBall.speedY; // update the position of the box along the y-axis
+      gameItemBall.Y += gameItemBall.speedY; // update the position of the box along the y-axis
     };
 
    function redrawgameItemPaddle1(){ 
@@ -151,21 +157,20 @@ gameItemBall.speedX = 3
      $("#gameItemBall").css("top", gameItemBall.Y);    // draw the box in the new location, positionX pixels away from the "top"
    };
  //\/ do collide
-   function doCollide(ball, paddle) {
+   function doCollide(paddle, ball) {
     // TODO: calculate and store the remaining
     // sides of the square1
-    paddle.leftX = paddle.x; //given
-    paddle.topY = paddle.y; //given
-    paddle.bottomY = paddle.y + paddle.height
-    paddlerightX = paddle.x + paddle.width
+    paddle.leftX = paddle.X; //given
+    paddle.topY = paddle.Y; //given
+    paddle.bottomY = paddle.Y + paddle.height
+    paddle.rightX = paddle.X + paddle.width ///????!!!
 
-  
 
     // TODO: Do the same for square2
-    ball.leftX = ball.x;
-    ball.topY = ball.y;
-    ball.bottomY = ball.y + ball.height
-    ball.rightX = ball.x +ball.width
+    ball.leftX = ball.X;
+    ball.topY = ball.Y;
+    ball.bottomY = ball.Y + ball.height
+    ball.rightX = ball.X +ball.width
 
     // TODO: Return true if they are overlapping, false otherwise
 	
@@ -181,7 +186,7 @@ gameItemBall.speedX = 3
     }
   }
     function handlePaddleCollisions(paddle, ball){
-      if (doCollide(ball, paddle)) {
+      if (doCollide(paddle, ball)) {
         ball.speedX = -3;
       }
       else {
@@ -193,25 +198,6 @@ gameItemBall.speedX = 3
 
 // /\ do collide
 
-    
-
-
-
-//handle paddle collisions functions. change balls speed
-  // function doCollide(gameItemball, gameItemPaddle1, gameItemPaddle2) {
-  //  
-  //  return true // return true if the objects do collide
-  //   if (doCollide(gameItemball, gameItemPaddle1)) {
-  //     // bounce ball off paddle Left
-  //     //INSERT SOMETHING HERE
-  //   }
-  //   else if(doCollide(gameItemball, gameItemPaddle2)) {
-  //     // bounce ball off paddle Right
-  //     //INSERT SOMETHING HERE
-  
-  //return false // return false if the objects do not collide
-  //   }
-  // }
   
   function endGame() {
     // stop the interval timer

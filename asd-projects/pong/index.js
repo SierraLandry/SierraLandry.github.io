@@ -176,6 +176,7 @@ gameItemPaddle1.speedX = 0
     else {
       return false;
     }
+  }
 // /\ do collide
   // function doCollide(gameItemball, gameItemPaddle1, gameItemPaddle2) {
   //  

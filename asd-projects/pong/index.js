@@ -156,7 +156,7 @@ gameItemBall.speedX = 3
     // sides of the square1
     paddle.leftX = paddle.x; //given
     paddle.topY = paddle.y; //given
-    paddle1.bottomY = paddle.y + paddle.height
+    paddle.bottomY = paddle.y + paddle.height
     paddlerightX = paddle.x + paddle.width
 
   
@@ -164,7 +164,7 @@ gameItemBall.speedX = 3
     // TODO: Do the same for square2
     ball.leftX = ball.x;
     ball.topY = ball.y;
-    ball.bottomY = ball.y + ball2.height
+    ball.bottomY = ball.y + ball.height
     ball.rightX = ball.x +ball.width
 
     // TODO: Return true if they are overlapping, false otherwise

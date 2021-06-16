@@ -70,6 +70,7 @@ gameItemBall.speedX = 3
     redrawgameItemPaddle1();
     redrawgameItemPaddle2();
     redrawgameItemBall();
+    handlePaddleCollisions();
   };
   
   /* 
@@ -181,7 +182,6 @@ gameItemBall.speedX = 3
       if (doCollide(ball, paddle)) {
         ball.speedX = -3;
       }
-     
       else {
         return false;
       }

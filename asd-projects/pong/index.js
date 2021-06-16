@@ -149,54 +149,49 @@ gameItemBall.speedX = 3
      $("#gameItemBall").css("top", gameItemBall.Y);    // draw the box in the new location, positionX pixels away from the "top"
    };
  //\/ do collide
-   function doCollide(gameItemPaddle1, gameItemBall, gameItemPaddle2) {
+   function doCollide(ball, paddle) {
     // TODO: calculate and store the remaining
     // sides of the square1
-    gameItemPaddle1.leftX = gameItemPaddle1.x; //given
-    gameItemPaddle1.topY = gameItemPaddle1.y; //given
-    gameItemPaddle1.bottomY = gameItemPaddle1.y + gameItemPaddle1.height
-    gameItemPaddle1.rightX = gameItemPaddle1.x + gameItemPaddle1.width
+    paddle.leftX = paddle.x; //given
+    paddle.topY = paddle.y; //given
+    paddle1.bottomY = paddle.y + paddle.height
+    paddlerightX = paddle.x + paddle.width
 
-    gameItemPaddle2.leftX = gameItemPaddle2.x; //given
-    gameItemPaddle2.topY = gameItemPaddle2.y; //given
-    gameItemPaddle2.bottomY = gameItemPaddle2.y + gameItemPaddle2.height
-    gameItemPaddle2.rightX = gameItemPaddle2.x + gameItemPaddle2.width
+  
 
     // TODO: Do the same for square2
-    gameItemBall.leftX = gameItemBall.x;
-    gameItemBall.topY = gameItemBall.y;
-    gameItemBall.bottomY = gameItemBall.y + gameItemBall2.height
-    gameItemBall.rightX = gameItemBall.x + gameItemBall.width
+    ball.leftX = ball.x;
+    ball.topY = ball.y;
+    ball.bottomY = ball.y + ball2.height
+    ball.rightX = ball.x +ball.width
 
     // TODO: Return true if they are overlapping, false otherwise
 	
-    if (gameItemPaddle1.rightX > gameItemBall.leftX &&
-      gameItemPaddle1.leftX < gameItemBall.rightX &&
-      gameItemPaddle1.bottomY > gameItemBall.topY &&
-      gameItemPaddle1.topY < gameItemBall.bottomY &&
-      //paddle 2 \/ //
-      gameItemPaddle2.rightX > gameItemBall.leftX &&
-      gameItemPaddle2.leftX < gameItemBall.rightX &&
-      gameItemPaddle2.bottomY > gameItemBall.topY &&
-      gameItemPaddle2.topY < gameItemBall.bottomY) {
+    if (paddle.rightX > ball.leftX &&
+      paddle.leftX < ball.rightX &&
+      paddle.bottomY > ball.topY &&
+      paddle.topY < ball.bottomY ) {
       return true;
     }
   
     else {
       return false;
     }
+    function handlePaddleCollisions(paddle, ball){
+      if (doCollide(ball, paddle)) {
+        ball.speedX = -3;
+      }
+     
+      else {
+        return false;
+      }
+
+  }
+
   }
 // /\ do collide
 
-    function handlePaddleCollisions(gameItemPaddle1, gameItemPaddle2, gameItemBall){
-        if (doCollide(gameItemBall, gameItemPaddle1)) {
-          gameItemBall.speedX = -3;
-        }
-        else if (doCollide(gameItemBall, gameItemPaddle2)) {
-          gameItemBall.speedX = 3;
-        }
-
-    }
+    
 
 
 

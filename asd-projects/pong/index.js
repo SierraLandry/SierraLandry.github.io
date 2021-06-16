@@ -30,8 +30,8 @@ gameItemPaddle2.speedX = 0
 gameItemBall.$element = $("#gameItemBall");
 gameItemBall.X = 215;   // same as "left"
 gameItemBall.Y = 230;    // same as "top"
-gameItemBall.speedY = 0
-gameItemPaddle1.speedX = 0
+gameItemBall.speedY = 3
+gameItemBall.speedX = 3
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
@@ -149,7 +149,7 @@ gameItemPaddle1.speedX = 0
      $("#gameItemBall").css("top", gameItemBall.Y);    // draw the box in the new location, positionX pixels away from the "top"
    };
  //\/ do collide
-   function doCollide(gameItemPaddle1, gameItemBall) {
+   function doCollide(gameItemPaddle1, gameItemBall, gameItemPaddle2) {
     // TODO: calculate and store the remaining
     // sides of the square1
     gameItemPaddle1.leftX = gameItemPaddle1.x; //given
@@ -157,7 +157,11 @@ gameItemPaddle1.speedX = 0
     gameItemPaddle1.bottomY = gameItemPaddle1.y + gameItemPaddle1.height
     gameItemPaddle1.rightX = gameItemPaddle1.x + gameItemPaddle1.width
 
-    
+    gameItemPaddle2.leftX = gameItemPaddle2.x; //given
+    gameItemPaddle2.topY = gameItemPaddle2.y; //given
+    gameItemPaddle2.bottomY = gameItemPaddle2.y + gameItemPaddle2.height
+    gameItemPaddle2.rightX = gameItemPaddle2.x + gameItemPaddle2.width
+
     // TODO: Do the same for square2
     gameItemBall.leftX = gameItemBall.x;
     gameItemBall.topY = gameItemBall.y;
@@ -169,7 +173,12 @@ gameItemPaddle1.speedX = 0
     if (gameItemPaddle1.rightX > gameItemBall.leftX &&
       gameItemPaddle1.leftX < gameItemBall.rightX &&
       gameItemPaddle1.bottomY > gameItemBall.topY &&
-      gameItemPaddle1.topY < gameItemBall.bottomY) {
+      gameItemPaddle1.topY < gameItemBall.bottomY &&
+      //paddle 2 \/ //
+      gameItemPaddle2.rightX > gameItemBall.leftX &&
+      gameItemPaddle2.leftX < gameItemBall.rightX &&
+      gameItemPaddle2.bottomY > gameItemBall.topY &&
+      gameItemPaddle2.topY < gameItemBall.bottomY) {
       return true;
     }
   
@@ -178,6 +187,20 @@ gameItemPaddle1.speedX = 0
     }
   }
 // /\ do collide
+
+    function handlePaddleCollisions(gameItemPaddle1, gameItemPaddle2, gameItemBall){
+        if (doCollide(gameItemBall, gameItemPaddle1)) {
+          gameItemBall.speedX = -3;
+        }
+        else if (doCollide(gameItemBall, gameItemPaddle2)) {
+          gameItemBall.speedX = 3;
+        }
+
+    }
+
+
+
+//handle paddle collisions functions. change balls speed
   // function doCollide(gameItemball, gameItemPaddle1, gameItemPaddle2) {
   //  
   //  return true // return true if the objects do collide

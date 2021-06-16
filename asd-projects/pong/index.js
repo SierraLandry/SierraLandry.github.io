@@ -138,7 +138,7 @@ gameItemBall.height = 20
     };
 
     function repositiongameItemBall(){ 
-      gameItemBall.X += gameItemBall.speedX ; // update the position of the box along the x-axis
+      gameItemBall.X += gameItemBall.speedX; // update the position of the box along the x-axis
       gameItemBall.Y += gameItemBall.speedY; // update the position of the box along the y-axis
     };
 

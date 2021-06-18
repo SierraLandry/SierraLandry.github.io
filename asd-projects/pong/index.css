@@ -46,3 +46,27 @@ body {
    left: 215px;   /* player 2's start left-wise */
    top: 230px;    /* player 2's start top-wise */
 }
+
+#gameItemScore1 { 
+  /* appearance */
+  background-color: rgb(212, 234, 243);
+  width: 50px;
+  height: 30px;
+  border-radius: 1px;
+  /* positioning */
+  position: absolute;
+   left: 10px;   /* score position start left-wise */
+   top: 10px;    /* score position start top-wise */
+}
+
+#gameItemScore2 { 
+  /* appearance */
+  background-color: rgb(247, 194, 164);
+  width: 50px;
+  height: 30px;
+  border-radius: 1px;
+  /* positioning */
+  position: absolute;
+   left: 380px;   /* score position start left-wise */
+   top: 10px;    /* score position start top-wise */
+}

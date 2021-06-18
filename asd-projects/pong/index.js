@@ -57,7 +57,8 @@ gameItemBall.height = 20
      "DOWNT" : 83, //number for S
   }
   
-  
+  // var obj1= updateScore1("#gameItemScore1");
+  // var obj2= updateScore2("#gameItemScore2")
 
 
   ////////////////////////////////////////////////////////////////////////////////
@@ -156,6 +157,11 @@ gameItemBall.height = 20
      $("#gameItemBall").css("left", gameItemBall.X);    // draw the box in the new location, positionX pixels away from the "left"
      $("#gameItemBall").css("top", gameItemBall.Y);    // draw the box in the new location, positionX pixels away from the "top"
    };
+
+  //  function updateScore(obj){
+  // $("h2").text(' 0 ');
+  //  }
+
  //\/ do collide
    function doCollide(paddle, ball) {
     // TODO: calculate and store the remaining
@@ -170,7 +176,7 @@ gameItemBall.height = 20
     ball.leftX = ball.X;
     ball.topY = ball.Y;
     ball.bottomY = ball.Y + ball.height
-    ball.rightX = ball.X +ball.width
+    ball.rightX = ball.X + ball.width
 
     // TODO: Return true if they are overlapping, false otherwise
 	
@@ -185,6 +191,8 @@ gameItemBall.height = 20
       return false;
     }
   }
+  // /\ do collide
+
     function handlePaddleCollisions(paddle, ball){
       if (doCollide(paddle, ball)) {
         ball.speedX = -3;
@@ -195,10 +203,18 @@ gameItemBall.height = 20
 
   }
 
+//   function handlePaddleCollisions(board.height, ball){
+//     if (doCollide(board.height, ball)) {
+//       ball.speedX = -3;
+//     }                                     //would this work for ball hitting top?
+//     else {
+//       return false;
+//     }
 
-// /\ do collide
+// }
 
-  
+ 
+
   function endGame() {
     // stop the interval timer
     clearInterval(interval);

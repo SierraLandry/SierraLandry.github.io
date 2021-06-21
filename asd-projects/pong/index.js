@@ -34,7 +34,7 @@ gameItemPaddle2.height = 80
 gameItemBall.$element = $("#gameItemBall");
 gameItemBall.X = 215;   // same as "left"
 gameItemBall.Y = 230;    // same as "top"
-gameItemBall.speedY = 0
+gameItemBall.speedY = .5
 gameItemBall.speedX = 3
 gameItemBall.width = 20
 gameItemBall.height = 20
@@ -79,6 +79,8 @@ gameItemBall.height = 20
     redrawgameItemBall();
     handlePaddleCollisions(gameItemPaddle1, gameItemBall);
     handlePaddleCollisions(gameItemPaddle2, gameItemBall);
+    handlePaddleCollisions(gameItemPaddle1, board.height);
+    handlePaddleCollisions(gameItemPaddle2, board.height);
   };
   
   /* 
@@ -195,7 +197,8 @@ gameItemBall.height = 20
 
     function handlePaddleCollisions(paddle, ball){
       if (doCollide(paddle, ball)) {
-        ball.speedX = -3;
+        ball.speedX = gameItemBall.speedX * -1 //change to reverse direction;
+        
       }
       else {
         return false;
@@ -203,9 +206,20 @@ gameItemBall.height = 20
 
   }
 
+//   function handlePaddleCollisions(paddle, board.height){
+//     if (doCollide(paddle, board.height)) {
+//       //change to reverse direction;
+      
+//     }
+//     else {
+//       return false;
+//     }
+
+// }
+
 //   function handlePaddleCollisions(board.height, ball){
 //     if (doCollide(board.height, ball)) {
-//       ball.speedX = -3;
+//       ball.speedX = gameItemBall.speedX * -1;
 //     }                                     //would this work for ball hitting top?
 //     else {
 //       return false;

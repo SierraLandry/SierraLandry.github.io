@@ -16,12 +16,15 @@ $(document).ready(function(){
 // "apply" and "filter" functions should go below here //
 /////////////////////////////////////////////////////////
 
-        // function reddify(){ ?
+        // function reddify(){ ? //todo4
          //   rgbNumbers[RED] = 225 ?
         // } ?
 
-// TODO 1 & 3: Create the applyFilter function here
-function applyFilter(){
+// TODO 2 & 4: Create the applyFilter function here
+function applyFilter(){ //call reddifiy in here < todo5 step 2
+    //filterFunction(){
+
+    //}
 
 }
         for (var r = 0; r < image.length; r++) {
@@ -40,10 +43,10 @@ function applyFilter(){
       
 
 
-// TODO 5: Create the applyFilterNoBackground function
+// TODO 6: Create the applyFilterNoBackground function
 
 
-// TODO 2 & 4: Create filter functions
+// TODO 3 & 5: Create filter functions
 
 
 // CHALLENGE code goes below here

@@ -4,7 +4,7 @@ $(document).ready(function(){
     const $display = $('#display');
 
     // TODO: Call your apply function(s) here
-    applyFilter();  //step 1 to do 1
+    applyFilter();  //step 1 todo 1
 
 
 
@@ -31,7 +31,8 @@ function applyFilter(){ //call reddifiy in here < todo5 step 2
             for (var c = 0; c < image[r].length; c++) {
                 var rgbString = image[r][c]; //rgbString here used to be r
                 
-                
+                image[r][c] = rgbString; //todo 2 step 5
+
                 var rgbNumbers = rgbStringToArray(rgbString) 
                 rgbNumbers[RED] = 0; //todo2 step 3
                 rgbArrayToString(rgbString);  //?? assign rgbnumbers back to rgb string somehow

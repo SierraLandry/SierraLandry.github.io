@@ -26,7 +26,7 @@ function applyFilter(
 
 ){ //todo 4 step 
 
-}
+
 
 //own thing \/  working fine
         for (var r = 0; r < image.length; r++) {
@@ -36,7 +36,9 @@ function applyFilter(
                 
 
                 var rgbNumbers = rgbStringToArray(rgbString) 
-                 // rgbNumbers[RED] = 255;//todo2 step 3
+                filterFunction(rgbNumbers);  //todo 4 step 3
+                
+                // rgbNumbers[RED] = 255;//todo2 step 3
 
                 //?? assign rgbnumbers back to rgb string somehow
                 // Reassign rgbString to rgbArrayToString call with rgbNumbers
@@ -48,9 +50,9 @@ function applyFilter(
 
             // /\ working fine
             }
-            filterFunction(rgbNumbers);  //todo 4 step 3
+          //  filterFunction(rgbNumbers);  //todo 4 step 3
         }
-      
+    }
 
 
 // TODO 6: Create the applyFilterNoBackground function

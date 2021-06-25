@@ -50,27 +50,27 @@ function applyFilter(
 
             // /\ working fine
             }
-          //  filterFunction(rgbNumbers);  //todo 4 step 3
+          
         }
     }
 
 
 // TODO 6: Create the applyFilterNoBackground function
-function applyFilterNoBackground(filterFunction){
-    [GREY] = 150   //???
-}
+// function applyFilterNoBackground(filterFunction){
+//     [GREY] = 150   //???
+// }
 
 // TODO 3 & 5: Create filter functions
-function reddify(){  //todo3
-    [RED] = 255
+function reddify(rgbArr){  //todo3 //needs to take in an array parameter
+    rgbArr[RED] = 255 //use array with this
  } 
 
-function decreaseBlue(){ //?
-    [BLUE] = Math.max(0)
+function decreaseBlue(rgbArr){ //?
+    rgbArr[BLUE] = Math.max(0)
 }
 
-function increaseGreenByBlue(){  //?
-    [GREEN] = Math.min(255)
+function increaseGreenByBlue(rgbArr){  //?
+    rgbArr[GREEN] = Math.min(255)
 }
 
 

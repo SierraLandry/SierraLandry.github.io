@@ -5,6 +5,7 @@ const SQUARE_SIZE = 20;
 const RED = 0;
 const GREEN = 1;
 const BLUE = 2;
+const GREY = 3;
 
 // the image data
 const image = [
@@ -51,11 +52,12 @@ function rgbStringToArray(rgbStr) {
     rgbArr[RED] = Number(rgbArr[RED]);
     rgbArr[GREEN] = Number(rgbArr[GREEN]);
     rgbArr[BLUE] = Number(rgbArr[BLUE]);
+    rgbArr[GREY] = Number(rgbArr[GREY]);
 
     return rgbArr;
 }
 
 // this function converts an array into an RGB string
 function rgbArrayToString(rgbArray) {
-    return "rgb("+rgbArray[RED]+","+rgbArray[GREEN]+","+rgbArray[BLUE]+")"
+    return "rgb("+rgbArray[RED]+","+rgbArray[GREEN]+","+rgbArray[BLUE]+","+rgbArray[GREY]+")"
 }

@@ -56,21 +56,21 @@ function applyFilter(
 
 
 // TODO 6: Create the applyFilterNoBackground function
-function applyFilterNoBackground(){
-    filterFunction
+function applyFilterNoBackground(filterFunction){
+    [GREY] = 150   //???
 }
 
 // TODO 3 & 5: Create filter functions
-function reddify([RED] = 255){  //todo3
-    
+function reddify(){  //todo3
+    [RED] = 255
  } 
 
-function decreaseBlue([BLUE] = Math.max = 0){ //change to code for blue, less hard coded
-
+function decreaseBlue(){ //?
+    [BLUE] = Math.max(0)
 }
 
-function increaseGreenByBlue([GREEN] = Math.min = 255){  //change to code for green, less hard coded
-    
+function increaseGreenByBlue(){  //?
+    [GREEN] = Math.min(255)
 }
 
 

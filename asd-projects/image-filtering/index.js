@@ -57,7 +57,7 @@ function applyFilter(
 
 // TODO 6: Create the applyFilterNoBackground function
 // function applyFilterNoBackground(filterFunction){
-//     [GREY] = 150   //???
+//     [] = 150   //???
 // }
 
 // TODO 3 & 5: Create filter functions

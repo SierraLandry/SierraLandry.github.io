@@ -79,8 +79,8 @@ gameItemBall.height = 20
     redrawgameItemBall();
     handlePaddleCollisions(gameItemPaddle1, gameItemBall);
     handlePaddleCollisions(gameItemPaddle2, gameItemBall);
-    handlePaddleCollisions(gameItemPaddle1, board.height);
-    handlePaddleCollisions(gameItemPaddle2, board.height);
+    collideBoard(paddle, board.height);
+    collideBoard(paddle, board.width);
   };
   
   /* 
@@ -206,16 +206,30 @@ gameItemBall.height = 20
 
   }
 
-//   function handlePaddleCollisions(paddle, board.height){
-//     if (doCollide(paddle, board.height)) {
-//       paddle.speedX * -1
-      
-//     }
-//     else {
-//       return false;
-//     }
+  function collideBoard(paddle){
+        if(doCollide(paddle, board.height)){
+        
+        if (paddle.x < 0){
+          paddle.x -= speedX;
+          paddle.speedX = 0;
+        }
+        if (paddle.x > board.width){
+          paddle.x -= speedX;
+          paddle.speedX = 0;
+        }
+        if (paddle.y < 0){
+          paddle.y -= speedY;
+          paddle.speedY = 0;
+        }
+        if (paddle.y > board.height){
+          paddle.y -= speedY;
+          paddle.speedY = 0;
+        }
+      }
+  }
 
-// }
+
+
 
 //   function handlePaddleCollisions(board.height, ball){
 //     if (doCollide(board.height, ball)) {

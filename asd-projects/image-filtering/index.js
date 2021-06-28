@@ -68,11 +68,11 @@ function reddify(rgbArr){  //todo3 //needs to take in an array parameter
  } 
 
 function decreaseBlue(rgbArr){ //todo 5
-    rgbArr[BLUE] = Math.max(0, BLUE - 70)
+    rgbArr[BLUE] = Math.max(0, rgb[BLUE] - 70)
 }
 
 function increaseGreenByBlue(rgbArr){  //todo 5
-    rgbArr[GREEN] = Math.min(255, GREEN + 1)
+    rgbArr[GREEN] = Math.min(255, rgb[GREEN] + 70)
 }
 
 

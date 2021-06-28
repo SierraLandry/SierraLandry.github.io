@@ -208,7 +208,7 @@ gameItemBall.height = 20
 
 //   function handlePaddleCollisions(paddle, board.height){
 //     if (doCollide(paddle, board.height)) {
-//       //change to reverse direction;
+//       paddle.speedX * -1
       
 //     }
 //     else {

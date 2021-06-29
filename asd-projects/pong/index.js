@@ -207,7 +207,7 @@ gameItemBall.height = 20
   }
 
   function collideBoard(paddle){
-        if(doCollide(paddle, board.height)){
+        if(doCollide(paddle , board.height)){
         
         if (paddle.x < 0){
           paddle.x -= speedX;

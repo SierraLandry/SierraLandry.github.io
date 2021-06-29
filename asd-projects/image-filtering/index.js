@@ -53,10 +53,16 @@ function applyFilter(                                  //apply filter \/
              for (var c = 0; c < image[r].length; c++) {
                  var rgbString = image[r][c]; //rgbString here used to be r
         
-               var rgbNumbers = rgbStringToArray(rgbString) 
-               filterFunction(rgbNumbers);  
+                    if(rgbNumbers = rgb(150, 150, 150)){
+                            
+                    }
+                    else{
+                           var rgbNumbers = rgbStringToArray(rgbString) 
+               filterFunction(rgbNumbers);  //only run if certain condition is met, if qual to top left pixel color
                rgbString = rgbArrayToString(rgbNumbers);
                 image[r][c] = rgbString; 
+                    }
+            
              }
   
      }

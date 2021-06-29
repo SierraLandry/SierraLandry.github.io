@@ -5,8 +5,8 @@ $(document).ready(function(){
 
     // TODO: Call your apply function(s) here
     applyFilter(reddify);  //step 1 todo 1  <call reddify here for todo 2 step 4 
-    applyFilter(decreaseBlue);
-    applyFilter(increaseGreenByBlue);
+    applyFilterNoBackground(decreaseBlue);
+    applyFilterNoBackground(increaseGreenByBlue);
 
     render($display, image);
 });
@@ -53,7 +53,7 @@ function applyFilter(                                  //apply filter \/
              for (var c = 0; c < image[r].length; c++) {
                  var rgbString = image[r][c]; //rgbString here used to be r
         
-                    if(rgbNumbers = rgb(150, 150, 150)){
+                    if(image[r][c] === image[0][0]){ //change paranthesis 0,0
                             
                     }
                     else{

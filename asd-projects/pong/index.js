@@ -34,8 +34,8 @@ gameItemPaddle2.height = 80
 gameItemBall.$element = $("#gameItemBall");
 gameItemBall.X = 215;   // same as "left"
 gameItemBall.Y = 230;    // same as "top"
-gameItemBall.speedY = .5
-gameItemBall.speedX = 3
+gameItemBall.speedY = Math.random();  //diagonal 
+gameItemBall.speedX = 3;    //horizontal speed
 gameItemBall.width = 20
 gameItemBall.height = 20
 
@@ -47,7 +47,9 @@ gameItemBall.height = 20
   $(document).on('keyup', handleKeyUpT);
   //define positionx, speedx, position y, and speed y around here//
 
- 
+  var BOARD_WIDTH = $('#board').width() ;
+  var BOARD_HEIGHT = $('#board').height();
+
 //define key numbers and their purposes around here//
 
    var KEY = { // meant to be variable for up key//
@@ -79,8 +81,9 @@ gameItemBall.height = 20
     redrawgameItemBall();
     handlePaddleCollisions(gameItemPaddle1, gameItemBall);
     handlePaddleCollisions(gameItemPaddle2, gameItemBall);
-    collideBoard(paddle, board.height);
-    collideBoard(paddle, board.width);
+    collideBoard(gameItemPaddle1, BOARD_HEIGHT);
+    collideBoard(gameItemPaddle2, BOARD_HEIGHT);
+    collideBoard(gameItemBall, BOARD_HEIGHT); 
   };
   
   /* 
@@ -206,40 +209,46 @@ gameItemBall.height = 20
 
   }
 
-  function collideBoard(paddle){
-        if(doCollide(paddle , board.height)){
+  function collideBoard(gameItemPaddle1){
         
-        if (paddle.x < 0){
-          paddle.x -= speedX;
-          paddle.speedX = 0;
+        if (gameItemPaddle1.y > BOARD_HEIGHT){
+          gameItemPaddle1.y -= speedY;
+          gameItemPaddle1.speedY = 0;
         }
-        if (paddle.x > board.width){
-          paddle.x -= speedX;
-          paddle.speedX = 0;
-        }
-        if (paddle.y < 0){
-          paddle.y -= speedY;
-          paddle.speedY = 0;
-        }
-        if (paddle.y > board.height){
-          paddle.y -= speedY;
-          paddle.speedY = 0;
-        }
-      }
+      
   }
 
+  function collideBoard(gameItemPaddle2){
+  
+    if (gameItemPaddle2.y > BOARD_HEIGHT){
+      gameItemPaddle2.y -= speedY;
+      gameItemPaddle2.speedY = 0;
+    }
+  
+}
+
+function collideBoard(gameItemBall){
+        
+  if (gameItemBall.x < 0){
+    gameItemBall.x -= speedX;
+    gameItemBall.speedX * -1;
+  }
+  if (gameItemBall.x > BOARD_WIDTH){  
+    gameItemBall.x -= speedX;
+    gameItemBall.speedX * -1;
+  }
+  if (gameItemBall.y < 0){
+    gameItemBall.y -= speedY;
+    gameItemBall.speedY * -1;
+  }
+  if (gameItemBall.y > BOARD_HEIGHT){
+    gameItemBall.y -= speedY;
+    gameItemBall.speedY * -1;
+  }
+
+}
 
 
-
-//   function handlePaddleCollisions(board.height, ball){
-//     if (doCollide(board.height, ball)) {
-//       ball.speedX = gameItemBall.speedX * -1;
-//     }                                     //would this work for ball hitting top?
-//     else {
-//       return false;
-//     }
-
-// }
 
  
 

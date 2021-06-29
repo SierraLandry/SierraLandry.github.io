@@ -212,20 +212,20 @@ gameItemBall.height = 20
 
 function collideBoard(object){
         
-  if (gameItemBall.x < 0){
-    gameItemBall.x -= speedX;
+  if (gameItemBall.X < 0){
+    gameItemBall.X -= speedX;
     gameItemBall.speedX * -1;
   }
-  if (gameItemBall.x > BOARD_WIDTH){  
-    gameItemBall.x -= speedX;
+  if (gameItemBall.X > BOARD_WIDTH){  
+    gameItemBall.X -= speedX;
     gameItemBall.speedX * -1;
   }
-  if (gameItemBall.y < 0){
-    gameItemBall.y -= speedY;
+  if (gameItemBall.Y < 0){
+    gameItemBall.Y -= speedY;
     gameItemBall.speedY * -1;
   }
-  if (gameItemBall.y > BOARD_HEIGHT){
-    gameItemBall.y -= speedY;
+  if (gameItemBall.Y > BOARD_HEIGHT){
+    gameItemBall.Y -= speedY;
     gameItemBall.speedY * -1;
   }
 

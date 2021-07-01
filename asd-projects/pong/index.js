@@ -34,7 +34,7 @@ gameItemPaddle2.height = 80
 gameItemBall.$element = $("#gameItemBall");
 gameItemBall.X = 215;   // same as "left"
 gameItemBall.Y = 230;    // same as "top"
-gameItemBall.speedY = Math.random() * 6 -3;  //diagonal 
+gameItemBall.speedY = Math.random() * 6 - 3;  //diagonal 
 gameItemBall.speedX = 3;    //horizontal speed
 gameItemBall.width = 20
 gameItemBall.height = 20
@@ -213,17 +213,17 @@ gameItemBall.height = 20
 
 function collideBoard(object){  //suggestion: chaining conditionals
         
-  if (object.X < 0 &&
-    object.X > BOARD_WIDTH &&
-    object.Y < 0 &&
-    object.Y > BOARD_HEIGHT
+  if (object.X < 0 ||
+    object.X > BOARD_WIDTH
     ){
-  object.Y -= speedY;
-  object.speedY * -1;
   object.X -= speedX;
   object.speedX * -1;
   }
-  
+   if (object.Y < 0 ||
+    object.Y > BOARD_HEIGHT){
+      object.Y -= speedY;
+  object.speedY * -1;
+    }
 
 } //keep
 

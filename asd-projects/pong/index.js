@@ -81,8 +81,9 @@ gameItemBall.height = 20
     redrawgameItemBall();
     handlePaddleCollisions(gameItemPaddle1, gameItemBall);
     handlePaddleCollisions(gameItemPaddle2, gameItemBall);
-    collideBoard(object);
-    
+    collideBoard(gameItemPaddle1);
+    collideBoard(gameItemPaddle2);
+    collideBoard(gameItemBall);
   };
   
   /* 
@@ -210,28 +211,24 @@ gameItemBall.height = 20
 
   
 
-function collideBoard(object){
+function collideBoard(object){  //suggestion: chaining conditionals
         
-  if (gameItemBall.X < 0){
-    gameItemBall.X -= speedX;
-    gameItemBall.speedX * -1;
+  if (object.X < 0 &&
+    object.X > BOARD_WIDTH &&
+    object.Y < 0 &&
+    object.Y > BOARD_HEIGHT
+    ){
+  object.Y -= speedY;
+  object.speedY * -1;
+  object.X -= speedX;
+  object.speedX * -1;
   }
-  if (gameItemBall.X > BOARD_WIDTH){  
-    gameItemBall.X -= speedX;
-    gameItemBall.speedX * -1;
-  }
-  if (gameItemBall.Y < 0){
-    gameItemBall.Y -= speedY;
-    gameItemBall.speedY * -1;
-  }
-  if (gameItemBall.Y > BOARD_HEIGHT){
-    gameItemBall.Y -= speedY;
-    gameItemBall.speedY * -1;
-  }
+  
 
 } //keep
 
-
+//object.Y -= speedY;
+//object.speedY * -1;
 
  
 

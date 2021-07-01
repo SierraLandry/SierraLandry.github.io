@@ -216,13 +216,13 @@ function collideBoard(object){  //suggestion: chaining conditionals
   if (object.X < 0 ||
     object.X > BOARD_WIDTH
     ){
-  object.X -= speedX;
-  object.speedX * -1;
+  object.X -= object.speedX;
+  object.speedX *= -1; //multiply and reassign and speed y and x dones exist on their own
   }
    if (object.Y < 0 ||
     object.Y > BOARD_HEIGHT){
-      object.Y -= speedY;
-  object.speedY * -1;
+      object.Y -= object.speedY;
+  object.speedY *= -1;
     }
 
 } //keep
